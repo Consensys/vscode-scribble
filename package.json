@@ -1,0 +1,40 @@
+{
+	"name": "vscode-scribble",
+	"description": "A Scribble embedded annotation language for Solidity",
+	"keywords": [],
+	"author": "MythX Team",
+	"license": "Apache-2.0",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ConsenSys/vscode-scribble"
+	},
+	"publisher": "blitz-1306",
+	"categories": [],
+	"engines": {
+		"vscode": "^1.55.0"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "scribble",
+				"aliases": ["Scribble", "scribble", "scr"],
+				"extensions": [".scr"],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"path": "./syntaxes/scribble.tmLanguage.json",
+				"scopeName": "scribble.injection",
+				"injectTo": ["source.solidity"],
+				"embeddedLanguages": {
+			  		"scribble.annotation": "scribble"
+				}
+			}
+		]
+	},
+	"extensionDependencies": [
+		"juanblanco.solidity"
+	]
+}
