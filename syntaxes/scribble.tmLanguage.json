@@ -1,65 +1,52 @@
 {
-    "scopeName": "scribble.injection",
-    "injectionSelector": "L:comment.block.documentation.solidity",
+    "scopeName": "source.scribble",
     "patterns": [
         {
-            "include": "#section"
+            "include": "#annotation_type"
+        },
+        {
+            "include": "#message"
+        },
+        {
+            "include": "#construct"
+        },
+        {
+            "include": "#operator"
+        },
+        {
+            "include": "#constant"
+        },
+        {
+            "include": "#number"
+        },
+        {
+            "include": "#string"
+        },
+        {
+            "include": "#type"
+        },
+        {
+            "include": "#builtin"
+        },
+        {
+            "include": "#function-call"
+        },
+        {
+            "include": "#punctuation"
         }
     ],
     "repository": {
-        "section": {
-            "name": "meta.embedded.section.scribble",
-            "begin": "\\b(scribble)\\b",
-            "end": "\\b(endscribble)\\b",
-            "patterns": [
-                {
-                    "include": "#annotation"
-                }
-            ]
-        },
-        "annotation": {
-            "name": "meta.embedded.inline.scribble",
-            "begin": "\\b(if_succeeds|if_updated|if_assigned|invariant|define)\\b",
-            "end": ";",
-            "beginCaptures": {
+        "annotation_type": {
+            "name": "meta.annotation.scribble",
+            "match": "\\b(if_succeeds|if_updated|if_assigned|invariant|define)\\b",
+            "captures": {
                 "1": {
                     "name": "keyword.control.scribble"
                 }
-            },
-            "patterns": [
-                {
-                    "include": "#message"
-                },
-                {
-                    "include": "#construct"
-                },
-                {
-                    "include": "#operator"
-                },
-                {
-                    "include": "#constant"
-                },
-                {
-                    "include": "#number"
-                },
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#type"
-                },
-                {
-                    "include": "#builtin"
-                },
-                {
-                    "include": "#function-call"
-                },
-                {
-                    "include": "#punctuation"
-                }
-            ]
+            }
         },
         "message": {
+            "name": "meta.message.scribble",
             "match": "\\{(\\:msg) (\\\".*?\\\")\\}",
             "captures": {
                 "1": {
@@ -90,7 +77,7 @@
             "match": "\\b(old)\\s*\\(",
             "captures": {
                 "1": {
-                    "name": "keyword.other.old.scribble"
+                    "name": "keyword.other.scribble"
                 }
             }
         },
@@ -98,7 +85,7 @@
             "match": "(\\$result)\\b",
             "captures": {
                 "1": {
-                    "name": "keyword.other.result.scribble"
+                    "name": "keyword.other.scribble"
                 }
             }
         },
@@ -251,7 +238,7 @@
             "patterns": [
                 {
                     "match": ";",
-                    "name": "punctuation.terminator.annotation.scribble"
+                    "name": "punctuation.terminator.scribble"
                 },
                 {
                     "match": "\\.",

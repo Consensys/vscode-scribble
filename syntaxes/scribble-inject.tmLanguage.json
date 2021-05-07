@@ -1,0 +1,21 @@
+{
+    "scopeName": "source.scribble.injection",
+    "injectionSelector": "L:comment.block.documentation.solidity",
+    "patterns": [
+        {
+            "include": "#section"
+        }
+    ],
+    "repository": {
+        "section": {
+            "contentName": "meta.embedded.block.scribble",
+            "begin": "#",
+            "end": ";",
+            "patterns": [
+                {
+                    "include": "source.scribble"
+                }
+            ]
+        }
+    }
+}
