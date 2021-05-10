@@ -1,16 +1,27 @@
 {
     "name": "vscode-scribble",
     "description": "A Scribble embedded annotation language for Solidity",
-    "keywords": [],
+    "keywords": [
+		"scribble",
+		"languages",
+		"snippets"
+	],
+	"categories": [
+		"Programming Languages",
+		"Snippets"
+	],
     "author": "The MythX Team",
+	"icon": "media/icon.png",
     "license": "Apache-2.0",
     "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/ConsenSys/vscode-scribble"
     },
+	"bugs": {
+		"url": "https://github.com/ConsenSys/vscode-scribble/issues"
+	},
     "publisher": "The MythX Team",
-    "categories": [],
     "main": "./build/extension.js",
     "scripts": {
         "vscode:prepublish": "npm run transpile",
@@ -35,7 +46,8 @@
     },
     "activationEvents": [
         "onLanguage:scribble",
-        "onLanguage:solidity"
+        "onLanguage:solidity",
+		"onCommand:vscode-scribble.insertIfSucceeds"
     ],
     "contributes": {
         "languages": [
@@ -81,10 +93,7 @@
             {
                 "command": "vscode-scribble.insertIfSucceeds",
                 "key": "ctrl+i",
-                "mac": "cmd+i",
-                "args": [
-                    "updated"
-                ]
+                "mac": "cmd+i"
             }
         ]
     },
