@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - impl
 
 
 name: Deploy Extension
