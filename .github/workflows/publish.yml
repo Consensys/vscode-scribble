@@ -1,11 +1,6 @@
 on:
-#   release:
-#     types: [created]
-  push:
-    branches:
-      - master
-      - impl
-
+  release:
+    types: [created]
 
 name: Deploy Extension
 jobs:
