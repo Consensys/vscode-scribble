@@ -1,11 +1,11 @@
 {
-	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es2019",
-		"lib": ["ES2019"],
-		"outDir": "build",
-		"sourceMap": true,
-		"rootDir": "src",
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2019",
+        "lib": ["ES2019"],
+        "outDir": "build",
+        "sourceMap": true,
+        "rootDir": "src",
 
         "strict": true,
         "noImplicitAny": true,
@@ -22,9 +22,9 @@
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true
-	},
-	"exclude": [
-		"node_modules",
-		".vscode-test"
-	]
+    },
+    "exclude": [
+        "node_modules",
+        ".vscode-test"
+    ]
 }
