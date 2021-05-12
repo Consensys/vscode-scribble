@@ -46,8 +46,7 @@
     },
     "activationEvents": [
         "onLanguage:scribble",
-        "onLanguage:solidity",
-		"onCommand:vscode-scribble.insertIfSucceeds"
+        "onLanguage:solidity"
     ],
     "contributes": {
         "languages": [
@@ -87,13 +86,6 @@
             {
                 "language": "scribble",
                 "path": "./snippets/scribble.json"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "vscode-scribble.insertIfSucceeds",
-                "key": "ctrl+i",
-                "mac": "cmd+i"
             }
         ]
     },

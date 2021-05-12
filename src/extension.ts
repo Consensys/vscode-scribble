@@ -1,17 +1,40 @@
 import * as vscode from "vscode";
 import { items } from "./misc";
 
+enum SupportedLanguages {
+    Solidity = "solidity",
+    Scribble = "scribble"
+}
+
 function canSuggest(document: vscode.TextDocument, position: vscode.Position): boolean {
-    const prefix = document.lineAt(position.line).text.trimLeft();
+    if (document.languageId === SupportedLanguages.Scribble) {
+        return true;
+    }
+
+    const prefixLine = document.lineAt(position.line).text.trimLeft();
     const markers = ["///", "/*", "*"];
 
-    if (!markers.some((marker) => prefix.startsWith(marker))) {
+    if (!markers.some((marker) => prefixLine.startsWith(marker))) {
         return false;
     }
 
-    const sharpIndex = prefix.indexOf("#");
+    const sharpIndex = prefixLine.lastIndexOf("#");
+    const semiIndex = prefixLine.lastIndexOf(";");
+    const curPos = position.character;
 
-    return sharpIndex > -1 && position.character > sharpIndex;
+    if (sharpIndex > -1) {
+        if (semiIndex > sharpIndex) {
+            return sharpIndex < curPos && curPos < semiIndex;
+        }
+
+        return sharpIndex < curPos;
+    }
+
+    /**
+     * @todo Fix case when predicate spreads across multiple lines,
+     * while current position is in the middle line between sharp and semicolon.
+     */
+    return false;
 }
 
 const completionProvider: vscode.CompletionItemProvider<vscode.CompletionItem> = {
@@ -59,22 +82,16 @@ const hoverProvider: vscode.HoverProvider = {
     }
 };
 
-type VSCodeCommand = (...args: any) => any;
-
-const insertIfSucceedsCommand: VSCodeCommand = () => {
-    vscode.commands.executeCommand("editor.action.insertSnippet", {
-        langId: "scribble",
-        name: "if"
-    });
-};
-
 export function activate(context: vscode.ExtensionContext): void {
-    const disposables: vscode.Disposable[] = [
-        vscode.languages.registerCompletionItemProvider("solidity", completionProvider),
-        vscode.languages.registerHoverProvider("solidity", hoverProvider),
+    const languages = [SupportedLanguages.Solidity, SupportedLanguages.Scribble];
+    const disposables: vscode.Disposable[] = [];
 
-        vscode.commands.registerCommand("vscode-scribble.insertIfSucceeds", insertIfSucceedsCommand)
-    ];
+    for (const language of languages) {
+        disposables.push(
+            vscode.languages.registerCompletionItemProvider(language, completionProvider),
+            vscode.languages.registerHoverProvider(language, hoverProvider)
+        );
+    }
 
     context.subscriptions.push(...disposables);
 }
