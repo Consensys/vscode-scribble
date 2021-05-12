@@ -2,37 +2,38 @@
     "name": "vscode-scribble",
     "description": "A Scribble embedded annotation language for Solidity",
     "keywords": [
-		"scribble",
-		"languages",
-		"snippets"
-	],
-	"categories": [
-		"Programming Languages",
-		"Snippets"
-	],
-    "author": "The MythX Team",
-	"icon": "media/icon.png",
+        "scribble",
+        "languages",
+        "snippets"
+    ],
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "preview": true,
+    "author": "ConsenSys Diligence",
+    "icon": "media/icon.png",
     "license": "Apache-2.0",
-    "version": "1.0.0",
+    "version": "0.1.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/ConsenSys/vscode-scribble"
     },
-	"bugs": {
-		"url": "https://github.com/ConsenSys/vscode-scribble/issues"
-	},
-    "publisher": "The MythX Team",
+    "bugs": {
+        "url": "https://github.com/ConsenSys/vscode-scribble/issues"
+    },
+    "publisher": "diligence",
     "main": "./build/extension.js",
     "scripts": {
         "vscode:prepublish": "npm run transpile",
         "transpile": "tsc -p ./",
         "lint": "eslint . --ext .ts",
-		"lint:fix": "eslint . --ext .ts --fix",
+        "lint:fix": "eslint . --ext .ts --fix",
         "watch": "tsc -watch -p ./"
     },
     "devDependencies": {
         "@types/node": "^12.20.12",
-        "@types/vscode": "^1.56.0",
+        "@types/vscode": "^1.55.0",
         "@typescript-eslint/eslint-plugin": "^4.22.1",
         "@typescript-eslint/parser": "^4.22.1",
         "eslint": "^7.25.0",
