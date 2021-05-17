@@ -38,7 +38,7 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
             new vscode.MarkdownString(
                 `
                 syntax: 
-                if_updated <{:msg "property description"}> propertyCondition;
+                if_assigned <{:msg "property description"}> propertyCondition;
                 uint stateVariable;
 
                 if_assigned properties describe what condition must hold when the specified field of a variable is written to.
