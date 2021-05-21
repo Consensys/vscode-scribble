@@ -1,5 +1,9 @@
 # vscode-scribble
 
+[![VS Marketplace version](https://img.shields.io/visual-studio-marketplace/v/diligence.vscode-scribble?label=VS%20Marketplace&logo=visual-studio-code&color=blue)](https://marketplace.visualstudio.com/items?itemName=diligence.vscode-scribble)
+![VS Marketplace installs](https://img.shields.io/visual-studio-marketplace/i/diligence.vscode-scribble?label=Installs&color=brightgreen)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 A [Scribble](https://github.com/ConsenSys/scribble) embedded annotation language for Solidity.
 
 ## Development
