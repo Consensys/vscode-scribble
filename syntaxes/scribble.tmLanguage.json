@@ -8,31 +8,7 @@
             "include": "#message"
         },
         {
-            "include": "#construct"
-        },
-        {
-            "include": "#operator"
-        },
-        {
-            "include": "#constant"
-        },
-        {
-            "include": "#number"
-        },
-        {
-            "include": "#string"
-        },
-        {
-            "include": "#type"
-        },
-        {
-            "include": "#builtin"
-        },
-        {
-            "include": "#function-call"
-        },
-        {
-            "include": "#punctuation"
+            "include": "#expression"
         }
     ],
     "repository": {
@@ -57,6 +33,37 @@
                 }
             }
         },
+        "expression": {
+            "patterns": [
+                {
+                    "include": "#construct"
+                },
+                {
+                    "include": "#operator"
+                },
+                {
+                    "include": "#constant"
+                },
+                {
+                    "include": "#number"
+                },
+                {
+                    "include": "#string"
+                },
+                {
+                    "include": "#type"
+                },
+                {
+                    "include": "#builtin"
+                },
+                {
+                    "include": "#function-call"
+                },
+                {
+                    "include": "#punctuation"
+                }
+            ]
+        },
         "construct": {
             "patterns": [
                 {
@@ -70,32 +77,63 @@
                 },
                 {
                     "include": "#construct-in"
+                },
+                {
+                    "include": "#construct-forall"
                 }
             ]
         },
         "construct-old": {
-            "match": "\\b(old)\\s*\\(",
-            "captures": {
+            "begin": "\\b(old)\\s*\\(",
+            "end": "(?<=\\))",
+            "beginCaptures": {
                 "1": {
-                    "name": "keyword.other.scribble"
+                    "name": "keyword.other.old.scribble"
                 }
-            }
+            },
+            "patterns": [
+                {
+                    "include": "#expression"
+                }
+            ]
         },
         "construct-result": {
             "match": "(\\$result)\\b",
             "captures": {
                 "1": {
-                    "name": "keyword.other.scribble"
+                    "name": "keyword.other.result.scribble"
                 }
             }
         },
         "construct-let": {
             "match": "\\b(let)\\b",
-            "name": "keyword.control.scribble"
+            "captures": {
+                "1": {
+                    "name": "keyword.control.let.scribble"
+                }
+            }
         },
         "construct-in": {
             "match": "\\b(in)\\b",
-            "name": "keyword.control.scribble"
+            "captures": {
+                "1": {
+                    "name": "keyword.control.in.scribble"
+                }
+            }
+        },
+        "construct-forall": {
+            "begin": "\\b(forall)\\s*\\(",
+            "end": "(?<=\\))",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control.forall.scribble"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#expression"
+                }
+            ]
         },
         "operator": {
             "patterns": [
@@ -110,6 +148,9 @@
                 },
                 {
                     "include": "#operator-assignment"
+                },
+                {
+                    "include": "#operator-range"
                 }
             ]
         },
@@ -128,6 +169,10 @@
         "operator-assignment": {
             "match": "(\\:?=)",
             "name": "keyword.operator.assignment.scribble"
+        },
+        "operator-range": {
+            "match": "\\.\\.\\.",
+            "name": "keyword.operator.range.scribble"
         },
         "constant": {
             "patterns": [
@@ -227,12 +272,18 @@
             ]
         },
         "function-call": {
-            "match": "\\b([A-Za-z_]\\w*)\\s*\\(",
-            "captures": {
+            "begin": "\\b([A-Za-z_]\\w*)\\s*\\(",
+            "end": "(?<=\\))",
+            "beginCaptures": {
                 "1": {
                     "name": "entity.name.function.scribble"
                 }
-            }
+            },
+            "patterns": [
+                {
+                    "include": "#expression"
+                }
+            ]
         },
         "punctuation": {
             "patterns": [
