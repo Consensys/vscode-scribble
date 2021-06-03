@@ -6,12 +6,17 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
         [
             vscode.CompletionItemKind.Keyword,
             new vscode.MarkdownString(
-                `
-                syntax: if_succeeds <{:msg "property description"}> propertyCondition;
-
-                if_succeeds properties describe what a function is supposed to guarantee for succeeding executions.
-                [\`if_succeeds\` docs](https://docs.scribble.codes/language/lang-function-specifications#successful-termination)
-                `.trim()
+                [
+                    "Syntax:",
+                    "```solidity",
+                    "/**",
+                    ' * #if_succeeds <{:msg "property description"}> propertyCondition;',
+                    " */",
+                    "```",
+                    "`if_succeeds` properties describe what a function is supposed to guarantee for succeeding executions.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/lang-function-specifications#successful-termination)"
+                ].join("\n")
             )
         ]
     ],
@@ -20,14 +25,18 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
         [
             vscode.CompletionItemKind.Keyword,
             new vscode.MarkdownString(
-                `
-                syntax: 
-                if_updated <{:msg "property description"}> propertyCondition;
-                uint stateVariable;
-
-                if_updates properties describe what condition must hold when the annotated variable is written to.
-                [\`if_updated\` docs](https://docs.scribble.codes/language/state-variable-specifications#variable-updates)
-                `.trim()
+                [
+                    "Syntax:",
+                    "```solidity",
+                    "/**",
+                    ' * #if_updated <{:msg "property description"}> propertyCondition;',
+                    " */",
+                    "uint stateVariable;",
+                    "```",
+                    "`if_updated` properties describe what condition must hold when the annotated variable is written to.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/state-variable-specifications#variable-updates)"
+                ].join("\n")
             )
         ]
     ],
@@ -36,15 +45,17 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
         [
             vscode.CompletionItemKind.Keyword,
             new vscode.MarkdownString(
-                `
-                syntax: 
-                if_assigned <{:msg "property description"}> propertyCondition;
-                uint stateVariable;
-
-                if_assigned properties describe what condition must hold when the specified field of a variable is written to.
-                `.trim()
+                [
+                    "Syntax:",
+                    "```solidity",
+                    "/**",
+                    ' * #if_assigned <{:msg "property description"}> propertyCondition;',
+                    " */",
+                    "uint stateVariable;",
+                    "```",
+                    "`if_assigned` properties describe what condition must hold when the specified field of a variable is written to."
+                ].join("\n")
             )
-            // \`if_assigned\` docs
         ]
     ],
     [
@@ -52,14 +63,18 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
         [
             vscode.CompletionItemKind.Keyword,
             new vscode.MarkdownString(
-                `
-                syntax: 
-                invariant <{:msg "property description"}> propertyCondition;
-                contract ContractName {...}
-
-                Invariants describe conditions that should hold before and after the execution of the contract.
-                [\`invariant\` docs](https://docs.scribble.codes/language/invariants#syntax)
-                `.trim()
+                [
+                    "Syntax:",
+                    "```solidity",
+                    "/**",
+                    ' * #invariant <{:msg "property description"}> propertyCondition;',
+                    " */",
+                    "contract ContractName { ... }",
+                    "```",
+                    "`invariant`s describe conditions that should hold before and after the execution of the contract.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/invariants#syntax)"
+                ].join("\n")
             )
         ]
     ],
@@ -68,14 +83,18 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
         [
             vscode.CompletionItemKind.Keyword,
             new vscode.MarkdownString(
-                `
-                syntax: 
-                define function_name(uint parameter) uint = 10 * parameter;
-
-                define allows users to define scribble predicates. These predicates can be used to re-use
-                code between properties.
-                [\`define\` docs](https://docs.scribble.codes/language/user-defined-functions)
-                `.trim()
+                [
+                    "Syntax:",
+                    "```solidity",
+                    "/**",
+                    " * #define function_name(uint parameter) uint = 10 * parameter;",
+                    " */",
+                    "contract ContractName { ... }",
+                    "```",
+                    "`define` allows users to define Scribble predicates. These predicates can be used to re-use code between properties.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/user-defined-functions)"
+                ].join("\n")
             )
         ]
     ],
@@ -84,12 +103,15 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
         [
             vscode.CompletionItemKind.Keyword,
             new vscode.MarkdownString(
-                `
-                syntax: let <variable> := <expression> in <expression>
-                
-                Let bindings allow us to write multi-step properties that deal with multiple variables.
-                [\`let-in\` docs](https://docs.scribble.codes/language/keywords#binding-return-values)
-                `.trim()
+                [
+                    "Syntax:",
+                    "```scr",
+                    "let <variable> := <expression> in <expression>",
+                    "```",
+                    "`let` bindings allow us to write multi-step properties that deal with multiple variables.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/keywords#binding-return-values)"
+                ].join("\n")
             )
         ]
     ],
@@ -98,12 +120,15 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
         [
             vscode.CompletionItemKind.Function,
             new vscode.MarkdownString(
-                `
-                syntax: old(<expression>);
-
-                The old keyword allows us to get the value of expressions at the beginning of functions' execution.
-                [\`old\` docs](https://docs.scribble.codes/language/keywords#referring-to-the-previous-state)
-                `.trim()
+                [
+                    "Syntax:",
+                    "```scr",
+                    "old(<expression>)",
+                    "```",
+                    "The `old` keyword allows us to get the value of expressions at the beginning of functions' execution.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/keywords#referring-to-the-previous-state)"
+                ].join("\n")
             )
         ]
     ]

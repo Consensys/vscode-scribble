@@ -3,12 +3,12 @@
     "injectionSelector": "L:comment.block.documentation.solidity",
     "patterns": [
         {
-            "include": "#section"
+            "include": "#annotation"
         }
     ],
     "repository": {
-        "section": {
-            "contentName": "meta.embedded.block.scribble",
+        "annotation": {
+            "contentName": "meta.embedded.annotation.scribble",
             "begin": "#",
             "end": ";",
             "patterns": [

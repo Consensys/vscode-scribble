@@ -3,8 +3,7 @@
       "prefix": "if",
       "body": [
           "if_${1|succeeds,updated,assigned|} ${2:<condition>};"
-      ],
-      "description": "if description"
+      ]
   },
   "msg": {
       "prefix": "{:",
@@ -16,8 +15,7 @@
       "prefix": "inv",
       "body": [
           "invariant ${1:<condition>};"
-      ],
-      "description": "invariant description"
+      ]
   },
   "define": {
       "prefix": "def",
@@ -30,7 +28,6 @@
       "prefix": "let",
       "body": [
           "let ${1:<bindings>} := ${2:<value>} in ${3:<condition>};"
-      ],
-      "description": "let-in description"
+      ]
   }
 }
