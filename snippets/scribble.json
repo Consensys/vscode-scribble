@@ -1,33 +1,32 @@
 {
-  "if": {
-      "prefix": "if",
-      "body": [
-          "if_${1|succeeds,updated,assigned|} ${2:<condition>};"
-      ]
-  },
-  "msg": {
-      "prefix": "{:",
-      "body": [
-          "{:msg \"${1:message}\"}"
-      ]
-  },
-  "invariant": {
-      "prefix": "inv",
-      "body": [
-          "invariant ${1:<condition>};"
-      ]
-  },
-  "define": {
-      "prefix": "def",
-      "body": [
-          "define ${1:<name>}(${2:<parameters>}) ${3:<type>} = ${4:<body>};"
-      ],
-      "description": "define description"
-  },
-  "let-in": {
-      "prefix": "let",
-      "body": [
-          "let ${1:<bindings>} := ${2:<value>} in ${3:<condition>};"
-      ]
-  }
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if_${1|succeeds,updated,assigned|} ${2:<condition>};"
+        ]
+    },
+    "msg": {
+        "prefix": "{:",
+        "body": [
+            "{:msg \"${1:message}\"}"
+        ]
+    },
+    "invariant": {
+        "prefix": "inv",
+        "body": [
+            "invariant ${1:<condition>};"
+        ]
+    },
+    "define": {
+        "prefix": "def",
+        "body": [
+            "define ${1:<name>}(${2:<parameters>}) ${3:<type>} = ${4:<body>};"
+        ]
+    },
+    "let-in": {
+        "prefix": "let",
+        "body": [
+            "let ${1:<bindings>} := ${2:<value>} in ${3:<condition>};"
+        ]
+    }
 }

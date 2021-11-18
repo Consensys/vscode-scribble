@@ -1,6 +1,6 @@
 {
     "scopeName": "source.scribble.injection",
-    "injectionSelector": "L:comment.block.documentation.solidity",
+    "injectionSelector": "L:comment.block.documentation",
     "patterns": [
         {
             "include": "#annotation"
