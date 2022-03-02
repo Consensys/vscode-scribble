@@ -131,5 +131,24 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
                 ].join("\n")
             )
         ]
+    ],
+    [
+        "forall",
+        [
+            vscode.CompletionItemKind.Function,
+            new vscode.MarkdownString(
+                [
+                    "Syntax:",
+                    "```scr",
+                    "forall (<type> <id> in <expression>...<expression>) <expression>",
+                    "forall (<type> <id> in <expression>) <expression>",
+                    "```",
+                    "Universal quantifiers are powerful expressions that allow users to talk about all values that fit a criteria.",
+                    "Scribble supports 2 types of universal quantifiers, quantifiers over numeric ranges and quantifiers over arrays and maps.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/keywords/quantification)"
+                ].join("\n")
+            )
+        ]
     ]
 ]);

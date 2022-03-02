@@ -14,7 +14,7 @@
     "repository": {
         "annotation_type": {
             "name": "meta.annotation.scribble",
-            "match": "\\b(if_succeeds|if_updated|if_assigned|invariant|define)\\b",
+            "match": "\\b(invariant|if_succeeds|if_updated|if_assigned|define|assert|try|require)\\b",
             "captures": {
                 "1": {
                     "name": "keyword.control.scribble"
