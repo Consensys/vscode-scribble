@@ -14,7 +14,7 @@
     "repository": {
         "annotation_type": {
             "name": "meta.annotation.scribble",
-            "match": "\\b(invariant|if_succeeds|if_updated|if_assigned|define|assert|try|require)\\b",
+            "match": "\\b(invariant|if_succeeds|if_updated|if_assigned|define|assert|try|require|macro)\\b",
             "captures": {
                 "1": {
                     "name": "keyword.control.scribble"
@@ -23,7 +23,7 @@
         },
         "message": {
             "name": "meta.message.scribble",
-            "match": "\\{(\\:msg) (\\\".*?\\\")\\}",
+            "match": "\\{\\s*(\\:msg) (\\\".*?\\\")\\s*\\}",
             "captures": {
                 "1": {
                     "name": "keyword.other.scribble"
