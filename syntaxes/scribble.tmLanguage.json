@@ -23,7 +23,7 @@
         },
         "message": {
             "name": "meta.message.scribble",
-            "match": "\\{\\s*(\\:msg) (\\\".*?\\\")\\s*\\}",
+            "match": "\\{\\s*(\\:msg)\\s*(\\\".*?\\\")\\s*\\}",
             "captures": {
                 "1": {
                     "name": "keyword.other.scribble"
