@@ -9,7 +9,7 @@
     "repository": {
         "annotation": {
             "contentName": "meta.embedded.annotation.scribble",
-            "begin": "#",
+            "begin": "(@custom:scribble\\s+)?#",
             "end": ";",
             "patterns": [
                 {
