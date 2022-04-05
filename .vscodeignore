@@ -1,6 +1,9 @@
 .vscode/**
+node_modules/**
+samples/**
 **/*.ts
 **/*.map
 .gitignore
-**/tsconfig.json
-node_modules/**
+.eslintrc.json
+.prettierrc.json
+tsconfig.json
