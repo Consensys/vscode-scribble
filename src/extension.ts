@@ -51,7 +51,7 @@ const completionProvider: vscode.CompletionItemProvider<vscode.CompletionItem> =
             result.push({ label, kind, documentation });
         }
 
-        return result;
+        return new vscode.CompletionList(result);
     }
 };
 
@@ -76,20 +76,21 @@ const hoverProvider: vscode.HoverProvider = {
 
         const [, documentation] = item;
 
-        return {
-            contents: [documentation]
-        };
+        return new vscode.Hover([documentation]);
     }
 };
 
 export function activate(context: vscode.ExtensionContext): void {
     const languages = [SupportedLanguages.Solidity, SupportedLanguages.Scribble];
+
     const disposables: vscode.Disposable[] = [];
 
     for (const language of languages) {
+        const selector = { scheme: "file", language };
+
         disposables.push(
-            vscode.languages.registerCompletionItemProvider(language, completionProvider),
-            vscode.languages.registerHoverProvider(language, hoverProvider)
+            vscode.languages.registerCompletionItemProvider(selector, completionProvider),
+            vscode.languages.registerHoverProvider(selector, hoverProvider)
         );
     }
 
