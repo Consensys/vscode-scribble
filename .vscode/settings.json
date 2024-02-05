@@ -3,6 +3,6 @@
     "typescript.tsc.autoDetect": "off",
     "typescript.preferences.quoteStyle": "double",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": "explicit"
     }
 }
