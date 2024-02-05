@@ -150,5 +150,26 @@ export const items: Map<string, [vscode.CompletionItemKind, vscode.MarkdownStrin
                 ].join("\n")
             )
         ]
+    ],
+    [
+        "macro",
+        [
+            vscode.CompletionItemKind.Function,
+            new vscode.MarkdownString(
+                [
+                    "Syntax:",
+                    "```solidity",
+                    "/**",
+                    " * #macro <name>(<var1>, <var2>...);",
+                    " */",
+                    "contract ContractName { ... }",
+                    "```",
+                    "`macro` annotations are attaching a set of reusable properties.",
+                    "It may be useful for common case scenarios for standardized implementations, like `ERC20`, `Ownable` and similar.",
+                    "",
+                    "[Online documentation](https://docs.scribble.codes/language/annotations/macros)"
+                ].join("\n")
+            )
+        ]
     ]
 ]);
