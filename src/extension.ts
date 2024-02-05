@@ -81,11 +81,9 @@ const hoverProvider: vscode.HoverProvider = {
 };
 
 export function activate(context: vscode.ExtensionContext): void {
-    const languages = [SupportedLanguages.Solidity, SupportedLanguages.Scribble];
-
     const disposables: vscode.Disposable[] = [];
 
-    for (const language of languages) {
+    for (const language of Object.values(SupportedLanguages)) {
         const selector = { scheme: "file", language };
 
         disposables.push(
